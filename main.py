@@ -38,9 +38,7 @@ def reranking(req: RerankingRequest):
 
     top = ranked[:req.top_n]
 
-    return {"query": req.query,
-            "results": [{"id": item.id, "score": float(score)} for item, score in top]
-            }
+    return {"results": [{"id": item.id, "score": float(score)} for item, score in top]}
 
 # launch this with:
 # uvicorn main:app --host 0.0.0.0 --port 8001 --reload
